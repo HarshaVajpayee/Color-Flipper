@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Flipper</title>
+    <style>
+    body{
+      margin: 0;
+      padding: 0;
+      background: #e74c3c;
+      font-family: fantasy;
+    }
+
+    .color {
+      margin-top: 300px;
+      text-align: center;
+    }
+
+    #hex {
+      display: block;
+      color: white;
+      font-size: 40px;
+      text-transform: uppercase;
+      margin: 20px;
+    }
+
+    .color button {
+      background: none;
+      outline: none;
+      color: white;
+      border: 3px solid white;
+      cursor: pointer;
+      font-size: 24px;
+    }
+    nav {
+      background: #fff;
+      height: 3rem;
+      display: grid;
+      align-items: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    .nav-center {
+      width: 90vw;
+      max-width: 1170px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-center h4 {
+      margin-bottom: 0;
+      color: hsl(205, 78%, 60%);
+    }
+    .nav-links {
+      display: flex;
+    }
+    nav a {
+      text-transform: capitalize;
+      font-weight: 700;
+      font-size: 1rem;
+      color: hsl(205, 86%, 17%);
+      letter-spacing: 0.1rem;
+      margin-right: 1rem;
+    }
+    nav a:hover {
+      color: hsl(205, 78%, 60%);
+    }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-center">
+        <h4>Color Flipper</h4>
+        <ul class="nav-links">
+          <li>
+            <a href="Color_flipper.html">Simple</a>
+          </li>
+          <li>
+            <a href="Color_flipper_hex.html">Hex</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="color">
+      <span id="hex">#e74c3c</span>
+      <button onclick="getNewColor()">Get New Color</button>
+    </div>
+    <script>
+    function getNewColor() {
+      var symbols, color;
+      symbols = "0123456789ABCDEF";
+
+      color = "#";
+      for(var i = 0; i < 6; i++) {
+        color = color + symbols[Math.floor(Math.random() * 16)];
+      }
+      document.body.style.background = color;
+      document.getElementById("hex").innerHTML = color;
+    }
+    </script>
+  </body>
+</html>
